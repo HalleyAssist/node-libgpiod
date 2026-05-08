@@ -144,6 +144,8 @@ declare module "node-libgpiod" {
     GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_UP: 32;
   }
 
+  export const LineFlags: LineFlags;
+
   /**
    * Returns true if the libgpiod functionality is available in
    * the current execution environment, otherwise false (for example
