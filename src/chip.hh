@@ -1,8 +1,9 @@
 #ifndef CHIP_HH
 #define CHIP_HH
 
-#include <gpiod.h>
 #include <nan.h>
+
+#include "gpiod_compat.hh"
 
 class Chip : public Nan::ObjectWrap {
  public:

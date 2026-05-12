@@ -89,7 +89,7 @@ NAN_METHOD(Line::getLineConsumer) {
     Nan::ThrowError("::getLineConsumer() for line==NULL");
     return;
   }
-  const char *name = gpiod_line_consumer(obj->getNativeLine());
+  const char *name = gpiod_line_consumer(obj->getNativeLine()); 
   if (!name)
     info.GetReturnValue().Set(Nan::Undefined());
   else

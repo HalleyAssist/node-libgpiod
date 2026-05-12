@@ -13,6 +13,17 @@ Native nodejs bindings for [libgpiod](https://git.kernel.org/pub/scm/libs/libgpi
 - linux (tested on fedora 33 running on raspberry pi model 3 B+ and rasp pi os on zero w)
 - c/c++ development tools
 
+### WSL builds
+
+When building inside WSL, the native addon now switches to a mock GPIO backend automatically.
+This mock backend:
+
+- does **not** require `libgpiod` headers or libraries
+- prints GPIO actions with `printf`-style messages instead of touching hardware
+- keeps the same JS API so app code can still load and exercise the addon in development
+
+Regular Linux builds outside WSL still link against the real `libgpiod` library.
+
 ## How to use into your project
 
 First install libgpiod and node development packages, if not installed yet:
@@ -130,7 +141,7 @@ for more sample code
   ```
 
 - libgpiod must be installed in the system correctly with development headers
-  otherwise npm install will fail.
+  otherwise npm install will fail, except on WSL where the mock backend is used.
 - node will garbage collect Chip and Line too early on certain cases. When
   writing the samples, sometimes the following error kept being thrown:
 

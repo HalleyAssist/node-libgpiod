@@ -1,9 +1,9 @@
 #ifndef LINE_HH
 #define LINE_HH
 
-#include <gpiod.h>
 #include <nan.h>
 
+#include "gpiod_compat.hh"
 #include "chip.hh"
 
 class Line : public Nan::ObjectWrap {

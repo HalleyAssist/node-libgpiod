@@ -3,8 +3,9 @@
 
 #include <iostream>
 
-#include <gpiod.h>
 #include <nan.h>
+
+#include "gpiod_compat.hh"
 
 NAN_METHOD(version);
 NAN_METHOD(getInstantLineValue);
